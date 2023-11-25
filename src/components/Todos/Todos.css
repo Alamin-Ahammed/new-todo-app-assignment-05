@@ -1,0 +1,22 @@
+.allTask {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.todoTaskParent {
+    width: 75%;
+}
+
+.updateInput {
+    outline: 1px lightblue solid ;
+    width: 97%;
+}
+
+.todoTask {
+    width: 100%;
+    text-align: left;
+}
+
+.compeleted {
+    text-decoration: line-through;
+}

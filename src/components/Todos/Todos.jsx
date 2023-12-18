@@ -16,9 +16,11 @@ const Todos = () => {
   };
 
   const addTodo = () => {
-    if (input.trim()) {
+    if (input.trim() !== '') {
       setTodo([...todos, input]);
       setInput("");
+    }else{
+      alert('please input something.')
     }
   };
 

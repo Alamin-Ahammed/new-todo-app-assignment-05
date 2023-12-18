@@ -12,7 +12,12 @@ const Todos = () => {
   };
 
   const handleSubinput = (e) => {
-    setSubinput(e.target.value);
+    const input = e.target.value;
+    if (input.trim() !== '') {
+      setSubinput(input)
+    }else {
+      setSubinput('')
+    }
   };
 
   const addTodo = (e) => {

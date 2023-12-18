@@ -15,12 +15,13 @@ const Todos = () => {
     setSubinput(e.target.value);
   };
 
-  const addTodo = () => {
-    if (input.trim() !== '') {
+  const addTodo = (e) => {
+    e.preventDefault();
+    if (input.trim() !== "") {
       setTodo([...todos, input]);
       setInput("");
-    }else{
-      alert('please input something.')
+    } else {
+      alert("please input something.");
     }
   };
 
@@ -55,20 +56,22 @@ const Todos = () => {
     <div className="flex justify-center items-center bg-gray-300 min-h-screen">
       <div className="h-auto md:w-1/2 px-2 w-96 bg-white rounded-lg">
         <div className="input_text relative">
-          <input
-            className="text-sm h-12 w-full my-4 pr-20 md:pr-28 outline-none pl-8"
-            type="text"
-            placeholder="Write a new task"
-            value={input}
-            onChange={(e) => handleInputs(e)}
-          />
-          <button
-            onClick={addTodo}
-            className="add_task text-sm transition-all hover:bg-blue-700 cursor-pointer text-white bg-blue-400 rounded-lg h-10 w-16 md:w-24 absolute right-1 top-[20px]"
-          >
-            Add task
-          </button>
-          <i className="absolute top-[27px] text-gray-600 text-xl left-2 fa fa-pencil-square"></i>
+          <form onSubmit={addTodo}>
+            <input
+              className="text-sm h-12 w-full my-4 pr-20 md:pr-28 outline-none pl-8"
+              type="text"
+              placeholder="Write a new task"
+              value={input}
+              onChange={(e) => handleInputs(e)}
+            />
+            <button
+              type="submit"
+              className="add_task text-sm transition-all hover:bg-blue-700 cursor-pointer text-white bg-blue-400 rounded-lg h-10 w-16 md:w-24 absolute right-1 top-[20px]"
+            >
+              Add task
+            </button>
+            <i className="absolute top-[27px] text-gray-600 text-xl left-2 fa fa-pencil-square"></i>
+          </form>
         </div>
         <ul className="all_tasks">
           {todos.map((todo, index) => (
